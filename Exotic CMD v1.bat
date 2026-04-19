@@ -1,0 +1,40 @@
+@echo off
+title Exotic CMD v1
+cls
+chcp 65001 >nul
+goto banner
+
+:banner
+echo .
+echo .
+echo .
+echo .
+echo ███████╗██╗  ██╗ ██████╗ ████████╗██╗ ██████╗     ██████╗███╗   ███╗██████╗ 
+echo ██╔════╝╚██╗██╔╝██╔═══██╗╚══██╔══╝██║██╔════╝    ██╔════╝████╗ ████║██╔══██╗
+echo █████╗   ╚███╔╝ ██║   ██║   ██║   ██║██║         ██║     ██╔████╔██║██║  ██║
+echo ██╔══╝   ██╔██╗ ██║   ██║   ██║   ██║██║         ██║     ██║╚██╔╝██║██║  ██║
+echo ███████╗██╔╝ ██╗╚██████╔╝   ██║   ██║╚██████╗    ╚██████╗██║ ╚═╝ ██║██████╔╝
+echo ╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝ ╚═════╝     ╚═════╝╚═╝     ╚═╝╚═════╝ 
+echo User: %username%
+echo Hostname: %computername%
+echo Date: %DATE% %TIME%
+systeminfo | findstr /C:"Total Physical Memory" /C:"Processor(s)"
+ipconfig | findstr /C:"IPv4 Address"
+goto cmd
+                                                                            
+:cmd
+                                                                                             
+set /p cmd= Exotic CMD V1: 
+
+:: Custom Commands
+if "%cmd%"=="hello" echo Hello there!
+if "%cmd%"=="exit" exit
+if "%cmd%"=="clear" cls
+if "%cmd%"=="sub" echo https://www.youtube.com/zok8_vr
+if "%cmd%"=="exit" exit
+if "%cmd%"=="hostname" echo %computername%
+if "%cmd%"=="virus" fsutil file createnew "%temp%\testfile.txt" 104857600
+if "%cmd%"=="destory" exit
+if "%cmd%"=="ipv4" ipconfig | findstr /C:"IPv4 Address"
+
+goto banner
